@@ -1,0 +1,18 @@
+*{
+    box-sizing: border-box;
+}
+
+.link-menu{
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+}
+
+.link-menu:hover{
+    text-decoration: underline;
+}
+
+.link-menu:first-child{
+    padding-left: 0;
+}
+

@@ -1,0 +1,1 @@
+export const Chats = <div>Страница Чатов</div>
