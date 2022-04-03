@@ -24,60 +24,52 @@ export default function HomeSlider() {
 
     const handlerChangeSlider = (event, operation) => {
 
-        /*
-        operation == "plus" 
-            ? setCurrentSlider(currentSlider + 1) 
-            : setCurrentSlider(currentSlider - 1)
-        */
-        // Получили длину
-        
-        
         const length = listSliderElement.length - 1;
-        
-        // Проверяем тип операции
-        if( operation == "plus" ) {
-            // Сравниваем положение центрального слайда 
-             if(mainSlider == length) {
-                setMainSlider(0)
-                setPrevSlider(length)
-                setNextSlider(1)
-             } else {
-                setMainSlider(mainSlider + 1)
-                setPrevSlider(mainSlider)
-                setNextSlider(mainSlider + 2)
-             } 
 
-        }else { 
-            if(currentSlider == 0) {
-                setMainSlider(length)
-            } else {
-                setMainSlider(mainSlider - 1)
+        const elemCalc = (index, operation) => {
+
+            if(operation == 'next'){
+
+                if(index == length){
+                    index = 0
+                }else index++
+    
+                return index
+            }else{
+                if(index == 0){
+                    index = length
+                }else index--
+    
+                return index
             }
+            
         }
 
+        setMainSlider(elemCalc(mainSlider, operation))
+        setPrevSlider(elemCalc(prevSlider, operation))
+        setNextSlider(elemCalc(nextSlider, operation))
+
+        //Алгоритм назад Первый
+        /* 
+        setMainSlider(2)
+        setPrevSlider(1)
+        setNextSlider(0)
+        */
+
+        //Алгоритм назад Второй
         /*
-        if(mainSlider == 0) {
-            setPrevSlider(length)
-            setNextSlider(1)
-        } else if(mainSlider == length){
-            setPrevSlider(mainSlider - 1)
-            setNextSlider(0)
-        } else if(mainSlider == 1){
-            setPrevSlider(mainSlider - 1)
-            setNextSlider(0)
-        }
+        setMainSlider(0)
+        setPrevSlider(2)
+        setNextSlider(1)
+        */
+
+        //Алгоритм Вперед Первый
+        /*
+        setMainSlider(0)
+        setPrevSlider(2)
+        setNextSlider(1)
         */
         
-        
-
-
-        /*
-        currentSlider == 0 ? listSliderElement[listSliderElement.length-1]?.img : listSliderElement[currentSlider-1]?.img;
-        
-        currentSlider == listSliderElement.length - 1 ? listSliderElement[0]?.img : listSliderElement[currentSlider+1]?.img;
-        
-        listSliderElement[currentSlider]?.img;
-        */
 
     }
 
@@ -99,10 +91,10 @@ export default function HomeSlider() {
                     />
             </div>
             <div className='panel'>
-                <button onClick={(e) => handlerChangeSlider(e, "minus")}>
+                <button onClick={(e) => handlerChangeSlider(e, "next")}>
                     Назад
                 </button>
-                <button onClick={(e) => handlerChangeSlider(e, "plus")}>
+                <button onClick={(e) => handlerChangeSlider(e, "back")}>
                     Вперед
                 </button>
             </div>
