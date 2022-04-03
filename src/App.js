@@ -22,9 +22,9 @@ const App = () => {
           </header>
           <main>
           <Routes>
-            <Route path="/" element={Main}></Route>
+            <Route path="/" element={Main()}></Route>
             <Route path="/catalog" element={Catalog()}></Route>
-            <Route path="/login" element={  Login() }></Route>
+            <Route path="/login" element={Login()}></Route>
             <Route path="/chats" element={Chats}></Route>
           </Routes>
           </main>

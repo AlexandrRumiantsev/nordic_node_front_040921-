@@ -1,1 +1,10 @@
-export const Main = <div>Главная страница из папки Pages</div>
+import React from "react";
+
+export const Main = () => {
+
+    return (
+        <div>
+            <h1>Главная страница</h1>
+        </div>
+    )
+}
