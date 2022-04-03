@@ -51,6 +51,8 @@ export default function MenuHeader() {
 
   const [menuList, setMenuList] = useState(menuListBase);
 
+  console.log(itemUser)
+
   return (
     <div>
       <AppBar position="static">

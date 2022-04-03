@@ -1,23 +1,55 @@
 import {UserType} from "../../const";
-import {jsonUser} from "../../../mocks/jsonUser"
 
-export const getUserItem = (login, password) => (dispatch, _getState, api) => {
 
-    console.log("getUserItem action")
-    console.log(login)
-    console.log(password)
-    const dataUsers = JSON.parse(jsonUser)
+export const getUserItem = (login, password) => (dispatch, _getState) => {
 
-    const currentUser = dataUsers.find(
-        (user) => user.LOGIN === login && user.PASSWORD === password
-    )
+    // 1. Создаём новый объект XMLHttpRequest
+    const xhr = new XMLHttpRequest();
+    // 2. Конфигурируем его: GET-запрос 
+    xhr.open('GET', `http://localhost:3000/auth?data={"login": "${login}","password": "${password}"}`, false);
+    // 3. Отсылаем запрос
+    xhr.send();
+    console.log(xhr)
+    if (xhr.status != 200) {
+        dispatch({
+            type: UserType.LOGIN_FAIL,
+            payload: {
+                textError: "Неправильный логин или пароль"
+            }
+        })
+    } else { 
+      
+        try {
+            const data = JSON.parse(xhr.response)
 
+            if(data.STATUS_CODE == 200){
+                dispatch({
+                    type: UserType.LOGIN,
+                    payload: data
+                })
+            }
+
+        } catch {
+           
+            dispatch({
+                type: UserType.LOGIN_FAIL,
+                payload: {
+                    textError: "Неправильный логин или пароль"
+                }
+            })
+
+        }
+
+    }
+
+   /*
     return(
         dispatch({
             type: UserType.GET_ITEM,
             payload: currentUser
         })
     )
+    */
     
     
 };

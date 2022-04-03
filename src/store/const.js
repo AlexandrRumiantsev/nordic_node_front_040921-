@@ -1,7 +1,9 @@
 export const UserType = {
     GET_LIST: "GET_USER_LIST",
     GET_ITEM: "GET_ITEM",
-    LOGOUT: "LOGOUT"
+    LOGOUT: "LOGOUT",
+    LOGIN: "LOGIN",
+    LOGIN_FAIL: "LOGIN_FAIL",
 }
 
 export const GoodType = {

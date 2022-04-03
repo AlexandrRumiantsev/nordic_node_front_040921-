@@ -1,0 +1,17 @@
+.slider-item{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.slider-item img{
+    width: 100%;
+}
+
+.slider-item .slider-img{
+    max-width: 450px;
+}
+
+.slider-img-left, .slider-img-right{
+    max-width: 200px;
+}
