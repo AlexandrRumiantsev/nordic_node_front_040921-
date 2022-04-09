@@ -9,7 +9,7 @@ import {
 
 import './App.css';
 
-import {Main, Chats, Catalog, Login} from "./Pages"
+import {Main, Chats, Catalog, Login, ItemGood} from "./Pages"
 import MenuHeader from "./Components/Menu"
 
 const App = () => {
@@ -26,6 +26,7 @@ const App = () => {
             <Route path="/catalog" element={Catalog()}></Route>
             <Route path="/login" element={Login()}></Route>
             <Route path="/chats" element={Chats}></Route>
+            <Route path="/catalog/:id" element={ItemGood()} />
           </Routes>
           </main>
         </div>

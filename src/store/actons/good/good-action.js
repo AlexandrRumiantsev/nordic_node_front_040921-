@@ -110,3 +110,75 @@ export const filterGoodList = (categoryId, goods) => (dispatch, _getState) => {
     
 
 }
+
+
+
+export const fetchGood = (id) => (dispatch) => {
+    console.log("fetchGood")
+    //http://localhost:3000/get_item_good?id=222
+    console.log(id)
+
+    // 1. Создаём новый объект XMLHttpRequest
+    const xhr = new XMLHttpRequest();
+
+    // 2. Конфигурируем его: GET-запрос 
+    xhr.open('GET', `http://localhost:3000/get_item_good?id=${id}`, false);
+
+     // 3. Отсылаем запрос
+     xhr.send();
+
+
+      // 4. Обработка возможных ошибок
+      try {
+            const data = JSON.parse(xhr.response)
+      } catch {
+            return(
+                dispatch({
+                    type: GoodType.SET_ERROR,
+                    payload: {
+                        textError: systemErrorMassegeDel
+                    }
+                })
+            )
+      }
+    /*
+    
+
+    
+
+   
+
+    // 4. Если код ответа сервера не 200, то это ошибка
+    if (xhr.status != 200) {
+        
+        dispatch({
+            type: GoodType.SET_ERROR,
+            payload: {
+                textError: systemErrorMassege
+            }
+        })
+
+    } else {
+       // вывести результат
+       // Обрабатываем ошибку
+        try {
+            const data = JSON.parse(xhr.response)
+            return(
+                dispatch({
+                    type: GoodType.GET_LIST,
+                    payload: data
+                })
+            )
+        } catch {
+            return(
+                dispatch({
+                    type: GoodType.SET_ERROR,
+                    payload: {
+                        textError: systemErrorMassege
+                    }
+                })
+            )
+        }
+    }
+    */
+};

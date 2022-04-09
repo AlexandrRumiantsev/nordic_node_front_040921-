@@ -134,8 +134,10 @@ export default function MenuHeader() {
                 </Link>
               ) : (
                 <div>
+                  <button onClick={() => dispatch(logoutUser())}>
+                    Выйти
+                  </button>
                   {itemUser.LOGIN}
-                  <button onClick={() => dispatch(logoutUser())}>Выйти</button>
                 </div>
               )}
               <Tooltip title="Open settings">

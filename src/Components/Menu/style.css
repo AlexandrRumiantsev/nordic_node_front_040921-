@@ -16,3 +16,12 @@
     padding-left: 0;
 }
 
+.css-2uchni{
+    display: flex;
+    align-items: center;
+    width: 170px;
+}
+
+.css-2uchni button {
+    margin: 0 5px;
+}
