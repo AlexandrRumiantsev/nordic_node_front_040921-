@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from 'react-redux'
+import { Navigate } from 'react-router-dom';
 
 import {Auth} from "./Components/Auth"
 import {Reg} from "./Components/Reg"
@@ -27,7 +28,7 @@ export function Login() {
                 <h4>{errorMassage}</h4>
             </div>
         ) 
-        : <h1>Вы уже авторизованы</h1>
+        :  <Navigate to="/" />
 
 
     )

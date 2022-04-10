@@ -1,6 +1,5 @@
 import {UserType} from "../../const";
 
-
 export const getUserItem = (login, password) => (dispatch, _getState) => {
 
     // 1. Создаём новый объект XMLHttpRequest
@@ -9,7 +8,7 @@ export const getUserItem = (login, password) => (dispatch, _getState) => {
     xhr.open('GET', `http://localhost:3000/auth?data={"login": "${login}","password": "${password}"}`, false);
     // 3. Отсылаем запрос
     xhr.send();
-    console.log(xhr)
+
     if (xhr.status != 200) {
         dispatch({
             type: UserType.LOGIN_FAIL,

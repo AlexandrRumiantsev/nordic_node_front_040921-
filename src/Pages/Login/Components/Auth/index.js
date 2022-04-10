@@ -19,16 +19,12 @@ export const Auth = ({setCurrentPag}) => {
     }
 
     const handlerLogin = () => {
-        console.log(loginValue)
-        console.log(passwordValue)
         dispatch(
             getUserItem(
                 loginValue,
                 passwordValue
             )
         )
-        
-       // alert('Авторизация!')
     }
     
     

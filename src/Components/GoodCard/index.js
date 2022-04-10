@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from 'react';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -23,10 +24,14 @@ const bull = (
   );
 
 export default function GoodCard ({element, goods}) {
-  console.log(element)
+  
   const {PRICE, ID, TITLE, DISCR, IMG} = element 
-
   const dispatch = useDispatch()
+  // получаем из стора роль авторизованного пользователя
+  const itemUserRole = useSelector((state) => state.User.item?.DATA[0]?.role);
+  //Для след занятия!
+  useEffect(() => {
+  }, [])
 
   return (
      <Card sx={{ minWidth: 275 }} id={ID} className='card-item'>
@@ -47,10 +52,15 @@ export default function GoodCard ({element, goods}) {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Подробнее</Button>
-          <Button onClick={() => dispatch(delItemGood(ID, goods)) } size="small">
-            Удалить
-          </Button>
+          <a href={`/catalog/${ID}`} target="_blank" size="small">
+            Подробнее
+          </a>
+          {
+            itemUserRole === "ADMIN" &&
+            <Button onClick={() => dispatch(delItemGood(ID, goods)) } size="small">
+              Удалить
+            </Button>
+          }
         </CardActions>
       </Card>
     )

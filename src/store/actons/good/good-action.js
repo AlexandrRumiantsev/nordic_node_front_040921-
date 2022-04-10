@@ -130,7 +130,30 @@ export const fetchGood = (id) => (dispatch) => {
 
       // 4. Обработка возможных ошибок
       try {
-            const data = JSON.parse(xhr.response)
+            console.log("try")
+            // Получили данные с сервера
+            const data = JSON.parse(xhr.response)[0]
+            
+            if(data){
+
+                return(
+                    dispatch({
+                        type: GoodType.GET_GOOD,
+                        payload: data
+                    })
+                )
+
+            }else{
+                return(
+                    dispatch({
+                        type: GoodType.SET_ERROR,
+                        payload: {
+                            textError: `Товар c id = ${id} не найден`
+                        }
+                    })
+                )
+            }
+
       } catch {
             return(
                 dispatch({

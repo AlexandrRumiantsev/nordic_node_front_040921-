@@ -1,6 +1,7 @@
 import {GoodType} from "../../const";
 
 const goodState = {
+  item: null,
   list: [],
   error: ``,
   filteredList: null
@@ -11,6 +12,13 @@ export default function goodReducer(state = goodState, action) {
   console.log(action)
 
   switch (action.type) {
+
+    case GoodType.GET_GOOD:
+      
+      return Object.assign({}, state, {
+        item: action.payload,
+      });
+
 
     case GoodType.GET_LIST:
       
