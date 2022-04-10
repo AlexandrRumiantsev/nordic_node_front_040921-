@@ -11,7 +11,9 @@ export const GoodType = {
     DEL_ITEM: "DEL_ITEM",
     SET_ERROR: "SET_ERROR",
     FILTER_LIST: "FILTER_LIST",
-    GET_GOOD: "GET_GOOD_ITEM"
+    GET_GOOD: "GET_GOOD_ITEM",
+    ADD_BASKET: "ADD_BASKET",
+    CLEAR_BASKET: "CLEAR_BASKET",
 }
 
 export const systemErrorMassege = "Системная ошибка"

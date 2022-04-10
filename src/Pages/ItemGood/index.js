@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react';
-import { fetchGood } from '../../store/actons/good/good-action'
+
+import { fetchGood, addGoodToBasket } from '../../store/actons/good/good-action'
 import {
     useParams
   } from "react-router-dom";
@@ -36,17 +37,15 @@ export const ItemGood = () => {
 
     let [counter, setCounter] = useState(0)   
 
-    const handlerSetter1 = () => {
-        if(counter > 0)
-            setCounter(--counter)
-    }
-
-    const handlerSetter2 = () => {
-        setCounter(++counter)
+    const handlerSetter = (operator) => {
+        operator === '+' ? setCounter(++counter) : (
+            counter > 0 && setCounter(--counter)
+        )
     }
 
     const addToBasketHandler = () => {
-        alert("Добавить в корзину")
+        itemData.COUNT = counter
+        dispatch(addGoodToBasket(itemData))
     }
 
     return(
@@ -64,9 +63,9 @@ export const ItemGood = () => {
                 </article>
                 <article className='panel'>
                         <div className='counter'>
-                            <button onClick={() => handlerSetter1()}>-</button>
+                            <button onClick={() => handlerSetter("-")}>-</button>
                             <span>{counter}</span>
-                            <button onClick={() => handlerSetter2()}>+</button>
+                            <button onClick={() => handlerSetter("+")}>+</button>
                         </div>
                         <button onClick={() => addToBasketHandler()}>
                             Добавить в корзину

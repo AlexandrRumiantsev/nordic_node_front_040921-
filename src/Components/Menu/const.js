@@ -20,9 +20,9 @@ export const menuListBase = {
             to: "/login"
         },
         {
-            index: "Chats",
-            title: "Чаты",
-            to: "/chats"
+            index: "Basket",
+            title: "Корзина",
+            to: "/basket"
         }
     ],
     "EN": [
@@ -42,9 +42,9 @@ export const menuListBase = {
             to: "/login"
         },
         {
-            index: "Chats",
-            title: "Chats",
-            to: "/chats"
+            index: "Basket",
+            title: "Basket",
+            to: "/basket"
         }
     ]
 }

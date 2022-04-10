@@ -4,14 +4,25 @@ const goodState = {
   item: null,
   list: [],
   error: ``,
-  filteredList: null
+  filteredList: null,
+  basket: []
 };
 
 export default function goodReducer(state = goodState, action) {
 
-  console.log(action)
-
   switch (action.type) {
+
+    case GoodType.CLEAR_BASKET:
+      
+      return Object.assign({}, state, {
+        basket: action.payload,
+      });
+
+    case GoodType.ADD_BASKET:
+      
+      return Object.assign({}, state, {
+        basket: action.payload,
+      });
 
     case GoodType.GET_GOOD:
       

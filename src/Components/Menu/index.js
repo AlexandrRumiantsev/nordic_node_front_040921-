@@ -27,6 +27,8 @@ export default function MenuHeader() {
   const dispatch = useDispatch();
 
   const itemUser = useSelector((state) => state.User.item);
+  const basketLenght = useSelector((state) => state.Good.basket.length);
+
 
   const settings = ["Profile", "Account", "Dashboard", "Logout"];
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -119,6 +121,7 @@ export default function MenuHeader() {
               {menuList[currentLang].map((page) => (
                 <Link key={page.index} to={page.to} className="link-menu">
                   {page.index !== "Login" && page.title}
+                  {page.index === "Basket" && `(${basketLenght})`}
                 </Link>
               ))}
             </Box>

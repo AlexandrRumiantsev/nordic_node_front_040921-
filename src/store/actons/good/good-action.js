@@ -205,3 +205,21 @@ export const fetchGood = (id) => (dispatch) => {
     }
     */
 };
+
+
+export const addGoodToBasket = (good) => (dispatch, _getState) => {
+     console.log("addGoodToBasket")
+     console.log(good)
+     dispatch({
+         type: GoodType.ADD_BASKET,
+         payload: [good]
+     })
+}
+
+export const clearGoodToBasket = (good) => (dispatch, _getState) => {
+
+    dispatch({
+        type: GoodType.CLEAR_BASKET,
+        payload: []
+    })
+}

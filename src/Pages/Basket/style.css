@@ -1,0 +1,13 @@
+article.item-basket{
+    display: flex;
+    align-items: center;
+    border: 1px solid gray;
+}
+
+article.item-basket div {
+    margin: 0 10px;
+}
+
+article.item-basket img {
+    max-height: 100px;
+}
