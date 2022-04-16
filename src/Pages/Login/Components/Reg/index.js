@@ -37,7 +37,7 @@ export const Reg = ({setCurrentPag}) => {
             <BasicButtons
                 style={1}
                 text={"Авторизация"}
-                //onClick={ () => setCurrentPag("Auth")}
+                onClick={ () => setCurrentPag("Auth")}
             />
         </div>
     )

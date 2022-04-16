@@ -208,8 +208,11 @@ export const fetchGood = (id) => (dispatch) => {
 
 
 export const addGoodToBasket = (good) => (dispatch, _getState) => {
-     console.log("addGoodToBasket")
-     console.log(good)
+     
+     const arBaket = sessionStorage.getItem("BASKET") || []
+     arBaket.push(good)
+     sessionStorage.setItem("BASKET", JSON.stringify(arBaket))
+
      dispatch({
          type: GoodType.ADD_BASKET,
          payload: [good]
@@ -217,6 +220,8 @@ export const addGoodToBasket = (good) => (dispatch, _getState) => {
 }
 
 export const clearGoodToBasket = (good) => (dispatch, _getState) => {
+
+    sessionStorage.setItem("BASKET", null)
 
     dispatch({
         type: GoodType.CLEAR_BASKET,

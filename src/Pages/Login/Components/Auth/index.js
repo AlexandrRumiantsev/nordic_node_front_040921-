@@ -53,7 +53,7 @@ export const Auth = ({setCurrentPag}) => {
             <BasicButtons
                 style={1}
                 text={"Регистрация"}
-                //onClick={ () => setCurrentPag("Reg")}
+                onClick={ () => setCurrentPag("Reg")}
             />
         </div>
     )

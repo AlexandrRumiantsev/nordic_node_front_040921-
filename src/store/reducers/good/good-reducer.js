@@ -55,6 +55,12 @@ export default function goodReducer(state = goodState, action) {
           filteredList: action.payload,
       });
 
+    case "SET_BASKET":
+      
+      return Object.assign({}, state, {
+         basket: action.payload,
+      });
+
   }
 
   return state;

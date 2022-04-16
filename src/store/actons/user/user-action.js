@@ -22,10 +22,12 @@ export const getUserItem = (login, password) => (dispatch, _getState) => {
             const data = JSON.parse(xhr.response)
 
             if(data.STATUS_CODE == 200){
+                
                 dispatch({
                     type: UserType.LOGIN,
                     payload: data
                 })
+
             }
 
         } catch {
