@@ -9,13 +9,13 @@ import './style.css';
 
 import { clearGoodToBasket } from "../../store/actons/good/good-action";
 
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const Basket = () => {
     const dispatch = useDispatch()
     const basketList = useSelector((state) => state.Good.basket);
     const [isOpenForm, handlerOpenForm] = useState(false)
-
+    const navigate = useNavigate();
 
     useEffect(() => {
 
@@ -58,21 +58,21 @@ export const Basket = () => {
 
     const handlerSendOrder = (e) => {
         e.preventDefault()
-        alert("Отправить заказ")
         const bot_token  = "5326920984:AAHfarkJWzUJki7DFAskea6sqfvdvCruoEo";
   	    const sUrl = `https://api.telegram.org/bot${bot_token}`;
 
         let adminsArray = {
-            'Александр': 52472140,
-            'Ярослав': 460209478,
-            'Эмиль': 518715021,
+            'Александр': 524721402,
+            //'Ярослав': 460209478,
+            //'Эмиль': 518715021,
         }
 
         Object.keys(adminsArray).forEach((element, key) => {
-            
+            //Тут нужно добавить данные клиента
             let messageTest = `
                 Уважаемый ${element},
-                в магазине был оформлен заказ созвонитесь с клиентом 
+                в магазине был оформлен заказ созвонитесь с клиентом:
+
             `
             axios.post( sUrl + `/sendMessage?chat_id=${adminsArray[element]}&text=${messageTest}`).then(res => {
                 
@@ -80,8 +80,13 @@ export const Basket = () => {
 
         });
         
-        let navigate = useNavigate();
+        // navigate может работать только внутри функционального компонента, но когда мы в роутере пишем
+        // <Route path="/basket" element={ Basket() }></Route> - реакт не воспринимает Basket как компонент
+        //заменить на;
+        //<Route path="/basket" element={ <Basket /> }></Route>
         navigate("/")
+        
+        //после покупки нужно очищать корзину
 
     }
 
