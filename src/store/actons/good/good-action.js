@@ -221,7 +221,7 @@ export const addGoodToBasket = (good) => (dispatch, _getState) => {
 
 export const clearGoodToBasket = (good) => (dispatch, _getState) => {
 
-    sessionStorage.setItem("BASKET", null)
+    sessionStorage.setItem("BASKET", [])
 
     dispatch({
         type: GoodType.CLEAR_BASKET,
