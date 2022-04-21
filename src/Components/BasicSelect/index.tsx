@@ -5,12 +5,11 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function BasicSelect({langs, setCurrentLang, currentLang}) {
+export default function BasicSelect({langs, setCurrentLang, currentLang}: any ) {
 
-  console.log(langs)
   const [age, setAge] = React.useState('');
 
-  const handleChange = (event) => {
+  const handleChange = (event: any) => {
     setAge(event.target.value);
     setCurrentLang(event.target.value)
   };
@@ -29,7 +28,7 @@ export default function BasicSelect({langs, setCurrentLang, currentLang}) {
           onChange={handleChange}
         >
           {
-            langs.map( (itemLang) => (
+            langs.map( (itemLang: any) => (
                 <MenuItem value={itemLang}>{itemLang}</MenuItem>
             ))
           }

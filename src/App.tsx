@@ -1,4 +1,3 @@
-
 import {
   BrowserRouter as Router,
   Routes,
@@ -9,8 +8,8 @@ import {
 
 import './App.css';
 
-import {Main, Chats, Catalog, Login, ItemGood, Basket} from "./Pages"
-import MenuHeader from "./Components/Menu"
+import {Main, Catalog, Login, ItemGood, Basket} from "./Pages/index"
+import MenuHeader from "./Components/Menu/index"
 
 const App = () => {
   return (
@@ -21,10 +20,9 @@ const App = () => {
           </header>
           <main>
           <Routes>
-            <Route path="/" element={Main()}></Route>
-            <Route path="/catalog" element={Catalog()}></Route>
-            <Route path="/login" element={Login()}></Route>
-            <Route path="/chats" element={Chats}></Route>
+            <Route path="/" element={ <Main /> }></Route>
+            <Route path="/catalog" element={ <Catalog />}></Route>
+            <Route path="/login" element={ <Login />}></Route>
             <Route path="/basket" element={ <Basket /> }></Route>
             <Route path="/catalog/:id" element={ <ItemGood /> } />
           </Routes>

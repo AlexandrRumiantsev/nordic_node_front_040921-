@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useEffect } from 'react';
 
 import Box from '@mui/material/Box';
@@ -52,7 +51,7 @@ export default function GoodCard ({element, goods}) {
           </Typography>
         </CardContent>
         <CardActions>
-          <a href={`/catalog/${ID}`} target="_blank" size="small">
+          <a href={`/catalog/${ID}`} target="_blank">
             Подробнее
           </a>
           {

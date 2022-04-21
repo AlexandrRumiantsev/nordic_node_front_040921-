@@ -43,15 +43,6 @@ export const getUserItem = (login, password) => (dispatch, _getState) => {
 
     }
 
-   /*
-    return(
-        dispatch({
-            type: UserType.GET_ITEM,
-            payload: currentUser
-        })
-    )
-    */
-    
     
 };
 
@@ -62,3 +53,45 @@ export const logoutUser  = () => (dispatch, _getState, api) => {
         })
     )
 }
+
+
+export const addUser  = (query) => (dispatch, _getState) => {
+
+    // 1. Создаём новый объект XMLHttpRequest
+    const xhr = new XMLHttpRequest();
+    // 2. Конфигурируем его: GET-запрос 
+    xhr.open('GET', query, false);
+    // 3. Отсылаем запрос
+    xhr.send();
+
+    if (xhr.status != 200) {
+        dispatch({
+            type: UserType.REG_FAIL,
+            payload: {
+                textError: "Не удалось зарегистрироваться"
+            }
+        })
+    } else { 
+      
+        try {
+            const data = JSON.parse(xhr.response)
+
+            if(data.STATUS_CODE == 200){
+                
+                dispatch({
+                    type: UserType.REG_SUCCESS,
+                    payload: data
+                })
+
+            }
+
+        } catch {
+           
+            // .....
+
+        }
+
+    }
+
+}
+

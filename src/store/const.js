@@ -4,6 +4,8 @@ export const UserType = {
     LOGOUT: "LOGOUT",
     LOGIN: "LOGIN",
     LOGIN_FAIL: "LOGIN_FAIL",
+    REG_FAIL: "REG_FAIL",
+    REG_SUCCESS: "REG_SUCCESS",
 }
 
 export const GoodType = {

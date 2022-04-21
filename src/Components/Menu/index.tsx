@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import AppBar from "@mui/material/AppBar";
@@ -19,20 +19,23 @@ import "./style.css";
 
 import { currentLangs, menuListBase } from "./const";
 
-import BasicSelect from "../BasicSelect";
+import BasicSelect from "../BasicSelect/index";
 
 import { logoutUser } from "../../store/actons/user/user-action";
 
 export default function MenuHeader() {
+
+  type RootState = ReturnType<any>;
+
   const dispatch = useDispatch();
 
-  const itemUser = useSelector((state) => state.User.item);
-  const basketLenght = useSelector((state) => state.Good.basket.length);
+  const itemUser = useSelector<RootState, string>((state) => state.User.item);
+  const basketLenght = useSelector<RootState, string>((state) => state.Good.basket.length);
 
 
   const settings = ["Profile", "Account", "Dashboard", "Logout"];
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);

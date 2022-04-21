@@ -1,5 +1,4 @@
-import React from "react";
-import HomeSlider from "../Components/HomeSlider/"
+import HomeSlider from "../../Components/HomeSlider"
 
 export const Main = () => {
     

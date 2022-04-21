@@ -17,6 +17,16 @@ export default function userReducer(state = userState, action) {
       return Object.assign({}, state, {
         item: action.payload,
       });
+
+    case UserType.REG_FAIL:
+
+      return Object.assign({}, state, {
+        error: action.payload.textError,
+      });
+
+    case UserType.REG_SUCCESS:
+
+      return Object.assign({}, state);
     
     case UserType.LOGOUT:
 

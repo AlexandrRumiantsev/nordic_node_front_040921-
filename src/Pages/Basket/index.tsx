@@ -1,8 +1,7 @@
-import React from "react";
 import axios from 'axios';
 
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, createRef } from 'react';
 
 
 import './style.css';
@@ -18,8 +17,8 @@ export const Basket = () => {
     const [isOpenForm, handlerOpenForm] = useState(false)
     const navigate = useNavigate();
 
-    const FIORef = React.createRef();
-    const MailRef = React.createRef();
+    const FIORef = createRef();
+    const MailRef = createRef();
 
     useEffect(() => {
 

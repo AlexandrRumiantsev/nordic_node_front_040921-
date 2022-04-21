@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 
-import GoodCard from "../Components/GoodCard/"
+import GoodCard from "../../Components/GoodCard/"
 
-import './style.css';
+import '../../Pages/style.css';
 import { useSelector, useDispatch } from 'react-redux'
 
-import {fetchGoods, filterGoodList}  from '../store/actons/good/good-action'
+import {fetchGoods, filterGoodList}  from '../../store/actons/good/good-action'
 
 
 export const Catalog = () => {
