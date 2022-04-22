@@ -2,9 +2,9 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
-export default function BasicTextFields({style, label, value, onChange, name, arrayRefs}) {
+export default function BasicTextFields({style, label, value, onChange, name, arrayRefs}: any) {
 
-  const refField = React.createRef();
+  const refField: any = React.createRef();
 
   arrayRefs && arrayRefs.push(refField)
 

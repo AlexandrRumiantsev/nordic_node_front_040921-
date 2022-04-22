@@ -17,11 +17,11 @@ export const ItemGood = () => {
     const {id} = useParams();
 
     const error = useSelector(
-        (state) => state.Good.error
+        (state: any) => state.Good.error
     )
     
     const itemData = useSelector(
-        (state) => state.Good.item
+        (state: any) => state.Good.item
     )
 
     // useEffect заменяет хуки ЖЦ из классового компонента
@@ -37,7 +37,7 @@ export const ItemGood = () => {
 
     let [counter, setCounter] = useState(0)   
 
-    const handlerSetter = (operator) => {
+    const handlerSetter = (operator: any) => {
         operator === '+' ? setCounter(++counter) : (
             counter > 0 && setCounter(--counter)
         )

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import './style.css';
 
 export default function HomeSlider() {
@@ -22,11 +22,11 @@ export default function HomeSlider() {
     const [nextSlider, setNextSlider]  = useState(2);
     const [mainSlider, setMainSlider]  = useState(1);
 
-    const handlerChangeSlider = (event, operation) => {
+    const handlerChangeSlider = (event: any, operation: any) => {
 
         const length = listSliderElement.length - 1;
 
-        const elemCalc = (index, operation) => {
+        const elemCalc = (index: any, operation: any) => {
 
             if(operation == 'next'){
 

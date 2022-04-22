@@ -1,8 +1,8 @@
-export const currentLangs = [
+export const currentLangs: any = [
     "RU", "EN"
 ]
 
-export const menuListBase = {
+export const menuListBase: any = {
     "RU": [
         {
             index: "Main",

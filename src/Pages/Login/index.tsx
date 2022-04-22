@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom';
 
@@ -7,10 +7,10 @@ import {Reg} from "./Components/Reg"
 
 export function Login() {
 
-    const [currentPage, setCurrentPage] = React.useState("Auth");
+    const [currentPage, setCurrentPage] = useState("Auth");
 
-    const itemUser = useSelector((state) => state.User.item);
-    const errorMassage = useSelector((state) => state.User.error);
+    const itemUser = useSelector((state: any) => state.User.item);
+    const errorMassage = useSelector((state: any) => state.User.error);
 
     return (
         !itemUser ? (

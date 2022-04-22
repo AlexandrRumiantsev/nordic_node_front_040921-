@@ -22,12 +22,13 @@ const bull = (
     </Box>
   );
 
-export default function GoodCard ({element, goods}) {
+export default function GoodCard ({element, goods} : any) {
   
   const {PRICE, ID, TITLE, DISCR, IMG} = element 
   const dispatch = useDispatch()
   // получаем из стора роль авторизованного пользователя
-  const itemUserRole = useSelector((state) => state.User.item?.DATA[0]?.role);
+
+  const itemUserRole = useSelector((state: any) => state.User.item?.DATA[0]?.role);
   //Для след занятия!
   useEffect(() => {
   }, [])

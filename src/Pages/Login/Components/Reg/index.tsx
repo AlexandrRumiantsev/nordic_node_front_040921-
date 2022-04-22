@@ -7,7 +7,7 @@ import BasicButtons from "../../../../Components/BasicButtons"
 
 import { addUser } from "../../../../store/actons/user/user-action"
 
-export const Reg = ({setCurrentPag}) => {
+export const Reg = ({setCurrentPag} : any) => {
 
     const [fieldsRef, setFieldsRef] = useState([])
     const dispetcher = useDispatch()
@@ -16,7 +16,7 @@ export const Reg = ({setCurrentPag}) => {
     const handlerReg = () => {
         
         let querySTR = "http://localhost:3000/reg?data="
-        const arrResult = {}
+        const arrResult: any = {}
         
         fieldsRef.forEach((element) => {
             // Фикс бага с нулами

@@ -1,6 +1,6 @@
 import {GoodType, systemErrorMassege, systemErrorMassegeDel} from "../../const";
 
-export const fetchGoods = () => (dispatch, _getState) => {
+export const fetchGoods = () => (dispatch: any, _getState: any) => {
 
         // 1. Создаём новый объект XMLHttpRequest
         const xhr = new XMLHttpRequest();
@@ -46,10 +46,10 @@ export const fetchGoods = () => (dispatch, _getState) => {
 };
 
 
-export const delItemGood = (id, goods) => (dispatch, _getState) => {
+export const delItemGood = (id: any, goods: any) => (dispatch: any, _getState: any) => {
 
     const newGoodsList = goods.filter(
-        (item) => item.ID !== id
+        (item: any) => item.ID !== id
     )
 
     // 1. Создаём новый объект XMLHttpRequest
@@ -95,10 +95,10 @@ export const delItemGood = (id, goods) => (dispatch, _getState) => {
 }
 
  
-export const filterGoodList = (categoryId, goods) => (dispatch, _getState) => {
+export const filterGoodList = (categoryId: any, goods: any) => (dispatch: any, _getState: any) => {
 
-    const newGoodsList = goods.filter(
-        (item) => item.CATEGORY_ID == categoryId || categoryId == "ALL"
+    const newGoodsList: any = goods.filter(
+        (item: any) => item.CATEGORY_ID == categoryId || categoryId == "ALL"
     )
 
     return(
@@ -113,7 +113,7 @@ export const filterGoodList = (categoryId, goods) => (dispatch, _getState) => {
 
 
 
-export const fetchGood = (id) => (dispatch) => {
+export const fetchGood = (id: any) => (dispatch: any) => {
     console.log("fetchGood")
     //http://localhost:3000/get_item_good?id=222
     console.log(id)
@@ -207,9 +207,9 @@ export const fetchGood = (id) => (dispatch) => {
 };
 
 
-export const addGoodToBasket = (good) => (dispatch, _getState) => {
+export const addGoodToBasket = (good: any) => (dispatch: any, _getState: any) => {
      
-     const arBaket = sessionStorage.getItem("BASKET") || []
+     const arBaket: any = sessionStorage.getItem("BASKET") || []
      arBaket.push(good)
      sessionStorage.setItem("BASKET", JSON.stringify(arBaket))
 
@@ -219,9 +219,9 @@ export const addGoodToBasket = (good) => (dispatch, _getState) => {
      })
 }
 
-export const clearGoodToBasket = (good) => (dispatch, _getState) => {
+export const clearGoodToBasket = () => (dispatch: any, _getState: any) => {
 
-    sessionStorage.setItem("BASKET", [])
+    sessionStorage.setItem("BASKET", [] as any)
 
     dispatch({
         type: GoodType.CLEAR_BASKET,

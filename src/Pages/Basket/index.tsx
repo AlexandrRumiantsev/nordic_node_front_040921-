@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState, useRef, createRef } from 'react';
+import { useEffect, useState, createRef } from 'react';
 
 
 import './style.css';
@@ -13,12 +13,12 @@ import { useNavigate } from 'react-router-dom';
 export const Basket = () => {
 
     const dispatch = useDispatch()
-    const basketList = useSelector((state) => state.Good.basket);
+    const basketList = useSelector((state: any) => state.Good.basket);
     const [isOpenForm, handlerOpenForm] = useState(false)
     const navigate = useNavigate();
 
-    const FIORef = createRef();
-    const MailRef = createRef();
+    const FIORef: any = createRef();
+    const MailRef: any = createRef();
 
     useEffect(() => {
 
@@ -31,7 +31,7 @@ export const Basket = () => {
 
     }, [])
     
-    const handlerChengeCount = (operation, count, index) => {
+    const handlerChengeCount = (operation: any, count: any, index: any) => {
 
         if(operation == 'minus' && basketList[index].COUNT > 0)
             --count
@@ -59,20 +59,20 @@ export const Basket = () => {
         )
     }
 
-    const handlerSendOrder = (e) => {
+    const handlerSendOrder = (e: any) => {
         e.preventDefault()
         const bot_token  = "5326920984:AAHfarkJWzUJki7DFAskea6sqfvdvCruoEo";
   	    const sUrl = `https://api.telegram.org/bot${bot_token}`;
 
-        let adminsArray = {
+        let adminsArray: any = {
             'Александр': 524721402,
             'Ярослав': 460209478,
             'Эмиль': 518715021,
         }
 
-        let stringWithGood = ''
+        let stringWithGood: any = ''
         //Составим список заказанных товаров
-        JSON.parse(sessionStorage.BASKET).forEach((elem, key) => {
+        JSON.parse(sessionStorage.BASKET).forEach((elem: any, key : any) => {
 
             stringWithGood += " Товар: " + elem.TITLE + ","
             stringWithGood += " Кол-во: " + elem.COUNT + ","
@@ -81,10 +81,10 @@ export const Basket = () => {
         })  
 
        
-        Object.keys(adminsArray).forEach((element, key) => {
+        Object.keys(adminsArray).forEach((element: any, key: any) => {
             //Тут нужно добавить данные клиента
 
-            let messageTest = `Уважаемый ${element}, в магазине был оформлен заказ: ${stringWithGood}, свяжитесь с клиентом: ФИО: ${FIORef.current.value}, ПОЧТА: ${MailRef.current.value}
+            let messageTest: any = `Уважаемый ${element}, в магазине был оформлен заказ: ${stringWithGood}, свяжитесь с клиентом: ФИО: ${FIORef?.current?.value as any}, ПОЧТА: ${MailRef.current.value}
             `
             axios.post( sUrl + `/sendMessage?chat_id=${adminsArray[element]}&text=${messageTest}`).then(res => {
                 
@@ -103,8 +103,7 @@ export const Basket = () => {
 
         
     return (
-        <React.Fragment>
-            
+        <>  
             <h1>
                 Корзина
             </h1>
@@ -112,7 +111,7 @@ export const Basket = () => {
               Очистить корзину
             </button>
             {
-                basketList.map((element, index) => {
+                basketList.map((element: any, index: any) => {
                     return (
                         <article className="item-basket">
                             <div>
@@ -145,6 +144,6 @@ export const Basket = () => {
                 <input ref={MailRef} placeholder="ПОЧТА"/>
                 <input onClick={ (e) => handlerSendOrder(e)} type="submit"/>
             </form>}
-        </React.Fragment>
+        </>
     )
 }

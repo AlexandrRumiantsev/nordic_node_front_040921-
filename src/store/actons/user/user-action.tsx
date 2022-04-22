@@ -1,6 +1,6 @@
 import {UserType} from "../../const";
 
-export const getUserItem = (login, password) => (dispatch, _getState) => {
+export const getUserItem = (login: any, password: any) => (dispatch: any, _getState: any) => {
 
     // 1. Создаём новый объект XMLHttpRequest
     const xhr = new XMLHttpRequest();
@@ -46,7 +46,7 @@ export const getUserItem = (login, password) => (dispatch, _getState) => {
     
 };
 
-export const logoutUser  = () => (dispatch, _getState, api) => {
+export const logoutUser  = () => (dispatch: any, _getState: any, api: any) => {
     return(
         dispatch({
             type: UserType.LOGOUT,
@@ -55,7 +55,7 @@ export const logoutUser  = () => (dispatch, _getState, api) => {
 }
 
 
-export const addUser  = (query) => (dispatch, _getState) => {
+export const addUser  = (query: any) => (dispatch: any, _getState: any) => {
 
     // 1. Создаём новый объект XMLHttpRequest
     const xhr = new XMLHttpRequest();

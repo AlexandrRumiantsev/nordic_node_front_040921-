@@ -13,22 +13,22 @@ export const Catalog = () => {
     const dispatch = useDispatch()
 
     const goddList = useSelector(
-        (state) => state.Good.list
+        (state: any) => state.Good.list
     )
 
     const filteredList = useSelector(
-        (state) => state.Good.filteredList
+        (state: any) => state.Good.filteredList
     )
 
     const errorText = useSelector(
-        (state) => state.Good.error
+        (state: any) => state.Good.error
     )
 
-    const User = useSelector(
-        (state) => state.User.item
+    const User: any = useSelector(
+        (state: any) => state.User.item
     )
 
-    const handlerChangeCategory = (event) => {
+    const handlerChangeCategory = (event: any) => {
         console.log("handlerChangeCategory")
         dispatch(
             filterGoodList(
@@ -57,9 +57,9 @@ export const Catalog = () => {
                 <option value="222">Женская</option>
             </select>
             {   !errorText ?
-                (<div class='card-list'>
+                (<div className='card-list'>
                     {
-                        list.map( (element) => (
+                        list.map( (element: any) => (
                                 <GoodCard
                                    element={element}
                                    goods={goddList}

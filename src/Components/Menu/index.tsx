@@ -29,18 +29,18 @@ export default function MenuHeader() {
 
   const dispatch = useDispatch();
 
-  const itemUser = useSelector<RootState, string>((state) => state.User.item);
-  const basketLenght = useSelector<RootState, string>((state) => state.Good.basket.length);
+  const itemUser = useSelector((state: any) => state.User.item);
+  const basketLenght = useSelector((state: any) => state.Good.basket.length);
 
 
   const settings = ["Profile", "Account", "Dashboard", "Logout"];
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
-  const handleOpenNavMenu = (event) => {
+  const handleOpenNavMenu = (event: any) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
+  const handleOpenUserMenu = (event: any) => {
     setAnchorElUser(event.currentTarget);
   };
 
@@ -105,7 +105,7 @@ export default function MenuHeader() {
                   display: { xs: "block", md: "none" },
                 }}
               >
-                {menuList[currentLang].map((page, index) => (
+                {menuList[currentLang].map((page: any, index: number) => (
                   <MenuItem key={index} onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{index}</Typography>
                   </MenuItem>
@@ -121,7 +121,7 @@ export default function MenuHeader() {
               LOGO
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-              {menuList[currentLang].map((page) => (
+              {menuList[currentLang].map((page: any) => (
                 <Link key={page.index} to={page.to} className="link-menu">
                   {page.index !== "Login" && page.title}
                   {page.index === "Basket" && `(${basketLenght})`}
