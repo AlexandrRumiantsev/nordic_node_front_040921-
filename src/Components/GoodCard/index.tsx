@@ -22,13 +22,46 @@ const bull = (
     </Box>
   );
 
-export default function GoodCard ({element, goods} : any) {
+interface IElementGood {
+  CATEGORY_ID: string;
+  COMMENTS_ID: number;
+  DISCR: string;
+  FILE_IMG: string;
+  ID: string;
+  IMG: string;
+  PRICE: string;
+  TITLE: string
+}
+
+interface IGoodCard {
+  element: IElementGood;
+  goods: [IElementGood];
+}
+
+interface IUserItem {
+  role: string,
+  DATA: any
+}
+
+interface IUser {
+  list: [IUserItem],
+  item: IUserItem,
+  error: string
+}
+
+interface IStore {
+  User: IUser
+}
+
+export default function GoodCard ({element, goods} : IGoodCard) {
   
   const {PRICE, ID, TITLE, DISCR, IMG} = element 
   const dispatch = useDispatch()
   // получаем из стора роль авторизованного пользователя
+  const USER = useSelector((state: IStore) => state.User);
+  console.log('USER', USER);
 
-  const itemUserRole = useSelector((state: any) => state.User.item?.DATA[0]?.role);
+  const itemUserRole = useSelector((state: IStore) => state.User.item?.DATA[0]?.role);
   //Для след занятия!
   useEffect(() => {
   }, [])

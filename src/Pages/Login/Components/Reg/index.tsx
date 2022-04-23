@@ -15,7 +15,7 @@ export const Reg = ({setCurrentPag} : any) => {
 
     const handlerReg = () => {
         
-        let querySTR = "http://localhost:3000/reg?data="
+        let querySTR = "reg?data="
         const arrResult: any = {}
         
         fieldsRef.forEach((element) => {
