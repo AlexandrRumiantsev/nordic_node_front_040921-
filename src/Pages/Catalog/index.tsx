@@ -29,7 +29,7 @@ export const Catalog = () => {
     )
 
     const handlerChangeCategory = (event: any) => {
-        console.log("handlerChangeCategory")
+
         dispatch(
             filterGoodList(
                 event.target.value,

@@ -74,7 +74,7 @@ export default function GoodCard ({element, goods} : IGoodCard) {
           </Typography>
           <Typography variant="h5" component="div">
              <div className="img-container">
-              <img src={IMG} />
+              <img alt={DISCR} src={IMG} />
              </div>
           </Typography>
           <Typography sx={{ mb: 1.5 }} color="text.secondary">
